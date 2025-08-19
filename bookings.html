@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Utamu Bakery Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("bakery-orders-bg.jpg") no-repeat center center/cover;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.97);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #8B4513;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #d2691e;
+            color: white;
+        }
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .edit-btn {
+            background-color: #ff9800;
+            color: white;
+        }
+        .delete-btn {
+            background-color: #d32f2f;
+            color: white;
+        }
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead {
+                display: none;
+            }
+            tr {
+                margin-bottom: 15px;
+                background: #f9f9f9;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            td {
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 5px;
+            }
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #8B4513;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Utamu Bakery Orders</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Item</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Order ID">101</td>
+                    <td data-label="Customer">Alice Johnson</td>
+                    <td data-label="Item">Chocolate Cake</td>
+                    <td data-label="Date">2025-08-12</td>
+                    <td data-label="Status">Pending</td>
+                    <td data-label="Actions">
+                        <button class="btn edit-btn" onclick="editOrder(101)">Edit</button>
+                        <button class="btn delete-btn" onclick="deleteOrder(101)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Order ID">102</td>
+                    <td data-label="Customer">Bob Smith</td>
+                    <td data-label="Item">Croissants</td>
+                    <td data-label="Date">2025-08-13</td>
+                    <td data-label="Status">Completed</td>
+                    <td data-label="Actions">
+                        <button class="btn edit-btn" onclick="editOrder(102)">Edit</button>
+                        <button class="btn delete-btn" onclick="deleteOrder(102)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Order ID">103</td>
+                    <td data-label="Customer">Jessica Brown</td>
+                    <td data-label="Item">Vanilla Muffins</td>
+                    <td data-label="Date">2025-08-18</td>
+                    <td data-label="Status">Pending</td>
+                    <td data-label="Actions">
+                        <button class="btn edit-btn" onclick="editOrder(103)">Edit</button>
+                        <button class="btn delete-btn" onclick="deleteOrder(103)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function editOrder(id) {
+            alert("Edit order " + id);
+            // Redirect to edit page: window.location.href = "edit-order.php?id=" + id;
+        }
+
+        function deleteOrder(id) {
+            if (confirm("Are you sure you want to delete order " + id + "?")) {
+                alert("Order " + id + " deleted.");
+                // In production: send request to backend to delete
+            }
+        }
+    </script>
+</body>
+</html>

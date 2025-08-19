@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory - Utamu Bakery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('yeh-xintong-go3DT3PpIw4-unsplash.jpg') no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2 { color: #8B0000; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        th { background-color: #B22222; color: white; }
+        .update-btn {
+            background: #8B0000;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Inventory Management</h2>
+        <table>
+            <tr>
+                <th>Ingredient ID</th>
+                <th>Ingredient Name</th>
+                <th>Quantity Available</th>
+                <th>Unit</th>
+                <th>Reorder Level</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>I001</td><td>Flour</td><td>50</td><td>Kg</td><td>20</td>
+                <td><button class="update-btn">Update</button></td>
+            </tr>
+            <tr>
+                <td>I002</td><td>Sugar</td><td>30</td><td>Kg</td><td>10</td>
+                <td><button class="update-btn">Update</button></td>
+            </tr>
+            <tr>
+                <td>I003</td><td>Butter</td><td>15</td><td>Kg</td><td>5</td>
+                <td><button class="update-btn">Update</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

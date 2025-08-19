@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - Utamu Bakery Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("bakery-history-bg.jpg") no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            margin: 30px auto;
+            width: 90%;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        h2 {
+            color: #8B4513; /* Chocolate brown */
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        th {
+            background-color: #d2691e; /* Cinnamon orange */
+            color: white;
+        }
+
+        .status-complete {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .status-cancelled {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Mobile responsive: scrollable table */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead {
+                display: none;
+            }
+            tr {
+                margin-bottom: 15px;
+                background: #fff8f0;
+                padding: 10px;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            }
+            td {
+                text-align: left;
+                padding: 8px 10px;
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+            }
+            td:before {
+                content: attr(data-label);
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                color: #8B4513;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>My Order History - Utamu Bakery</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Items</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Order ID">UT001</td>
+                    <td data-label="Items">Chocolate Cake, 2 Croissants</td>
+                    <td data-label="Date">2025-08-10</td>
+                    <td data-label="Total">$25</td>
+                    <td data-label="Status" class="status-complete">Completed</td>
+                </tr>
+                <tr>
+                    <td data-label="Order ID">UT002</td>
+                    <td data-label="Items">Banana Bread, Muffins</td>
+                    <td data-label="Date">2025-08-14</td>
+                    <td data-label="Total">$15</td>
+                    <td data-label="Status" class="status-pending">Pending</td>
+                </tr>
+                <tr>
+                    <td data-label="Order ID">UT003</td>
+                    <td data-label="Items">French Baguette, Donuts</td>
+                    <td data-label="Date">2025-08-18</td>
+                    <td data-label="Total">$18</td>
+                    <td data-label="Status" class="status-cancelled">Cancelled</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

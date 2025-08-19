@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Utamu Bakery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("patrick-tomasso-NlcCPeKNmwg-unsplash.jpg") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .payment-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            width: 360px;
+        }
+        .payment-container h2 {
+            margin-bottom: 18px;
+            color: #8B4513; /* Chocolate brown */
+        }
+        .payment-container label {
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            color: #5a2e0e;
+        }
+        .payment-container input,
+        .payment-container select,
+        .payment-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .payment-container button {
+            background-color: #d2691e; /* Cinnamon orange */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .payment-container button:hover {
+            background-color: #a0522d;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Checkout - Utamu Bakery</h2>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+
+        <label for="order">Select Item:</label>
+        <select id="order">
+            <option>Chocolate Cake - $20</option>
+            <option>French Baguette - $5</option>
+            <option>Croissant (Pack of 4) - $8</option>
+            <option>Banana Bread - $12</option>
+            <option>Cupcakes (6 Pack) - $15</option>
+        </select>
+
+        <label for="card">Card Number:</label>
+        <input type="text" id="card" placeholder="Enter card number" required>
+
+        <label for="expiry">Expiry Date:</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" placeholder="CVV" required>
+
+        <button onclick="processPayment()">Pay Now</button>
+    </div>
+
+    <script>
+        function processPayment() {
+            const name = document.getElementById("name").value;
+            const order = document.getElementById("order").value;
+
+            if (name && order) {
+                alert(`Payment successful! Thank you ${name} for your order: ${order}. Your fresh goodies will be ready soon! 🥐🍰`);
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        }
+    </script>
+</body>
+</html>

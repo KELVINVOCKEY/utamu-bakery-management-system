@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Utamu Bakery Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("blake-wisz-0mZIT-EcH5k-unsplash.jpg") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 380px; /* fit nicely on smartphones */
+            gap: 12px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .auth-form h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #004080;
+        }
+        .auth-form label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .auth-form input,
+        .auth-form select {
+            padding: 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .auth-form button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 12px;
+            font-size: 16px;
+        }
+        .auth-form button:hover {
+            background-color: #0066cc;
+        }
+        .auth-form p {
+            text-align: center;
+            font-size: 14px;
+        }
+        .auth-form a {
+            color: #004080;
+            text-decoration: none;
+        }
+        .auth-form a:hover {
+            text-decoration: underline;
+        }
+
+        /* Extra adjustments for very small screens */
+        @media (max-width: 400px) {
+            .auth-form {
+                padding: 15px;
+                border-radius: 8px;
+            }
+            .auth-form h2 {
+                font-size: 18px;
+            }
+            .auth-form input,
+            .auth-form select,
+            .auth-form button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="register-form" class="auth-form">
+        <h2>Utamu Bakery Registration</h2>
+
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" required>
+        
+        <label for="id-number">ID Number:</label>
+        <input type="text" id="id-number" required>
+        
+        <label for="phone-number">Phone Number:</label>
+        <input type="text" id="phone-number" required>
+        
+        <label for="register-username">Username:</label>
+        <input type="text" id="register-username" required>
+        
+        <label for="register-password">Password:</label>
+        <input type="password" id="register-password" required>
+        
+        <label for="role">Register as:</label>
+        <select id="role">
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+        </select>
+        
+        <button type="button" onclick="registerUser()">Register</button>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </form>
+
+    <script>
+        function registerUser() {
+            const fullName = document.getElementById("full-name").value;
+            const idNumber = document.getElementById("id-number").value;
+            const phoneNumber = document.getElementById("phone-number").value;
+            const username = document.getElementById("register-username").value;
+            const password = document.getElementById("register-password").value;
+            const role = document.getElementById("role").value;
+            
+            if (fullName && idNumber && phoneNumber && username && password) {
+                // Store in localStorage (temporary mock for testing)
+                localStorage.setItem("username", username);
+                localStorage.setItem("role", role);
+                alert("Registration successful! You can now log in.");
+                window.location.href = "login.html";
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+</body>
+</html>

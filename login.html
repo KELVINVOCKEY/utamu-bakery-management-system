@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Utamu Bakery Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("patrick-tomasso-NlcCPeKNmwg-unsplash.jpg") no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 350px;
+            gap: 12px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        .auth-form h2 {
+            text-align: center;
+            color: #8B4513; /* Chocolate brown */
+            margin-bottom: 10px;
+        }
+        .auth-form label {
+            font-weight: bold;
+            font-size: 14px;
+            text-align: left;
+        }
+        .auth-form input, .auth-form select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .auth-form button {
+            background-color: #D2691E; /* Caramel brown */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .auth-form button:hover {
+            background-color: #b75718;
+        }
+        .auth-form p {
+            font-size: 14px;
+            text-align: center;
+        }
+        .auth-form a {
+            color: #D2691E;
+            text-decoration: none;
+        }
+        .auth-form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form id="login-form" class="auth-form">
+        <h2>Utamu Bakery Login</h2>
+
+        <label for="login-username">Username:</label>
+        <input type="text" id="login-username" placeholder="Enter your username" required>
+
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required>
+
+        <label for="user-role">Login as:</label>
+        <select id="user-role">
+            <option value="customer">Customer</option>
+            <option value="admin">Admin</option>
+            
+        </select>
+
+        <button type="button" onclick="loginUser()">Login</button>
+        <p>Don't have an account? <a href="index.html">Register</a></p>
+    </form>
+
+    <script>
+        function loginUser() {
+            const username = document.getElementById("login-username").value;
+            const password = document.getElementById("login-password").value;
+            const role = document.getElementById("user-role").value;
+            
+            if (username && password) {
+                localStorage.setItem("username", username);
+                localStorage.setItem("role", role);
+                
+                if (role === "admin") {
+                    window.location.href = "admin.html";
+                
+                } else  {
+                    window.location.href = "customer.html";
+                }
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+</body>
+</html>
